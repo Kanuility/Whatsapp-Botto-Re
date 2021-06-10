@@ -121,7 +121,7 @@ async function msgHandler(client, message) {
         } = sender
         pushname = pushname || verifiedName // verifiedName is the name of someone who uses a business account
             // if (pushname === undefined) console.log(sender + '\n\n' + chat)
-        const prefix = '#'
+        const prefix = ':'
         body = (type === 'chat' && body.startsWith(prefix)) ? body : ((type === 'image' && caption) && caption.startsWith(prefix)) ? caption : ''
         const command = body.slice(prefix.length).trim().split(/ +/).shift().toLowerCase()
         const args = body.slice(prefix.length).trim().split(/ +/).slice(1)
@@ -157,83 +157,83 @@ async function msgHandler(client, message) {
             case 'menu':
             case 'help':
                 {
-                    const text = `👋️Hi ${pushname}, I'm Emilia!
+                    const text = `👋️Hi ${pushname}, I'm Chitoge!
 
-My prefix is (#)
+My prefix is (:)
 
 🌟️ Command List 🌟️
 
-*_CMD: #profile_*
+*_CMD: :profile_*
 *Description: Displays the information of the user*
 
-*_CMD: #info_*
+*_CMD: :info_*
 *Description: Displays the information about the bot* 🌐️
 
-*_CMD: #sticker_*
+*_CMD: :sticker_*
 *Description: Turns images into stickers* 🔖️
-Usage: #sticker as caption of picture
+Usage: :sticker as caption of picture
 
-*_CMD: #gsticker <giphy URL>_*
+*_CMD: :gsticker <giphy URL>_*
 *Description: Turns gifs into stickers*🔖️
-Usage: #gsticker https://giphy.com/... 
+Usage: :gsticker https://giphy.com/... 
 
-*_CMD: #pokemon_*
+*_CMD: :pokemon_*
 *Description: Returns picture of a random Pokemon* 😺️
 
-*_CMD: #waifu_*
+*_CMD: :waifu_*
 *Description: Returns picture of a random waifu* 💌️
 
-*_CMD: #anime <anime name>_*
+*_CMD: :anime <anime name>_*
 *Description: Returns the information of the given anime* 📺️
-Usage: #anime sakura trick
+Usage: :anime sakura trick
 
-*_CMD: #neko_*
+*_CMD: :neko_*
 *Description: Displays picture of a random cat* 🐈️
 
-*_CMD: #animeneko_*
+*_CMD: :animeneko_*
 Description: Displays picture of an anime cat ;)* 💚️
 
-*_CMD: #wallpaper <keyword>_*
+*_CMD: :wallpaper <keyword>_*
 *Description: Returns a random anime wallpaper based on the keyword* 📱️
-Usage: #wallpaper Black Butler
+Usage: :wallpaper Black Butler
 
-*_CMD: #covid <country>_*
+*_CMD: :covid <country>_*
 *Description: Displays the live stats of Covid-19 of the given country* 🌍️
-Usage: #covid Japan
+Usage: :covid Japan
 
-*_CMD: #meme_*
+*_CMD: :meme_*
 *Description: Returns a random meme 🎷️ 
 
-*_CMD: #sr <subreddit_title>_*
+*_CMD: :sr <subreddit_title>_*
 *Description: Displays a post from the given subreddit* 💻️
-Usage: #sr zelda
+Usage: :sr zelda
 
-*_CMD: #quotes_*
+*_CMD: :quotes_*
 *Description: Returns a quote that will either give you existential crises or wisdom* 🌠️
 
-*_CMD: #groupinfo_*
+*_CMD: :groupinfo_*
 *Description: Displays the information of the group* ⛱️
 
-*_CMD: #roll_*
+*_CMD: :roll_*
 *Description: Rolls a dice* 🎲
 
-*_CMD: #flip_*
+*_CMD: :flip_*
 *Description: Flips a coin* 🟡
 
 Admin Commands 📙️
 
 To execute the following commands the bot and the author needs to be admin
 
-*_CMD: #seticon_*
+*_CMD: :seticon_*
 *Description: Sets the quoted image as the group icon* 🎆️
 
-*_CMD: #kick @user_*
+*_CMD: :kick @user_*
 *Description: Kicks the mentioned person from the group* 🏌️
 
-*_CMD: #promote @user_*
+*_CMD: :promote @user_*
 *Description: Makes the metioned user admin* 👑️
 
-*_CMD: #demote @user_*
+*_CMD: :demote @user_*
 *Description: Demotes the mentioned user from adminship* 💔️
 
 
@@ -244,7 +244,7 @@ Hope you have a great day!`
                     break
                 }
             case 'info':
-                client.reply(from, '👋️Hi there, I\'m Emilia\nThis project is open source, built using Javascript || Node.js and ~is available at GitHub https:\/\/bit.ly\/39Ld2L8~(Discontinued).\n\n *Creators*👑️\n\n_Alen Yohannan (Ban Takahiro)_ \n _Somnath Das (Takeshi Stark)_ \n\n*Developers*✨\n \n _Alen Yohannan_ \n_Somnath Das_\n_Dominik Heiing_\n\n*Contributors*💫\n\n_Miliana Blue_\n_Aman Sakuya_\n_Mystery_\n_ShellTear_', id)
+                client.reply(from, '👋️Hi there, I\'m Chitoge\nThis project is built using Javascript || Node.js\n\n *Creator*👑️\n\n_Lucky Yambem (Shin Nouzen)_, id)
                 break
                 // Sticker Creator
             case 'sticker':
@@ -268,7 +268,7 @@ Hope you have a great day!`
                 }
                 break
             case 'gsticker':
-                if (args.length !== 1) return client.reply(from, 'Baka! The format is incorrect. Use #help to see the correct format.', id)
+                if (args.length !== 1) return client.reply(from, 'Baka! The format is incorrect. Use :help to see the correct format.', id)
                 if (isGiphy) {
                     const getGiphyCode = url.match(new RegExp(/(\/|\-)(?:.(?!(\/|\-)))+$/, 'gi'))
                     if (!getGiphyCode) return client.reply(from, 'Error', id)
